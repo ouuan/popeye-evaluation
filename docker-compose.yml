@@ -1,0 +1,13 @@
+services:
+  pardiff:
+    build: ParDiff
+    volumes:
+      - ./output/pardiff:/output
+      - ./tests:/tests
+      - ./ParDiff/tests:/examples:ro
+  popeye:
+    build: netlifter
+    volumes:
+      - ./output/popeye:/output
+      - ./tests:/tests
+      - ./netlifter/benchmarks/popeye:/examples:ro

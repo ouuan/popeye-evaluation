@@ -35,7 +35,7 @@ set(LLVM_LINK_COMPONENTS
         )
 
 find_library(GRAPHVIZ gvc)
-if (GRAPHVIZ-NOTFOUND)
+if (NOT GRAPHVIZ)
     set(GRAPHVIZ_DEP)
     message(STATUS "GRAPHVIZ not found")
 else ()
