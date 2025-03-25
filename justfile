@@ -5,6 +5,7 @@ _list:
 pardiff test1 test2:
     docker compose run --rm pardiff "{{test1}}" "{{test2}}"
 
+# Run ParDiff container with interactive shell.
 pardiff-interactive:
     docker compose run --rm --entrypoint /bin/bash pardiff
 
@@ -12,6 +13,7 @@ pardiff-interactive:
 popeye test:
     docker compose run --rm popeye "{{test}}"
 
+# Run popeye container with interactive shell.
 popeye-interactive:
     docker compose run --rm --entrypoint /bin/bash popeye
 
