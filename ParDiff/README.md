@@ -38,7 +38,7 @@ void *popeye_make_message(void);
 
 int popeye_make_message_length(void);
 
-int pardiff_main_message(){
+int popeye_main() {
     unsigned char *from = popeye_make_object(sizeof(char));
     struct interface *ifp = popeye_make_object(sizeof(struct interface));
     unsigned char *packet = popeye_make_message();
