@@ -17,6 +17,6 @@ See results in the `output` directory.
 
 ## Test Case Organization
 
--   Each test case should be organized in a directory in `tests` that can be built with `make main.o`. Alternatively, the Makefile may provide target for `main.o.bc` directly.
+-   Each test case should be organized in a directory in `tests` that can be built with `make main.a`. Alternatively, the Makefile may provide target for `main.a.bc` directly.
 -   Use `$(CC)` and `$(CXX)` instead of `gcc` and `g++` in the Makefile.
 -   ParDiff and popeye interfaces are unified so that the same test case code can be used in both tools. Use `popeye_make_*` instead of `pardiff_make_*`. Use `popeye_main` instead of `pardiff_main_message` as entry point.

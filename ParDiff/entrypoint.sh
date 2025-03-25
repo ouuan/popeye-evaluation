@@ -17,11 +17,11 @@ bitcodes=()
 for t in "/$1" "/$2"; do
     pushd "$t"
     echo "Building $t"
-    if ! make main.o.bc; then
-        make main.o
-        extract-bc main.o
+    if ! make main.a.bc; then
+        make main.a
+        extract-bc -b main.a
     fi
-    bitcodes+=("$(realpath main.o.bc)")
+    bitcodes+=("$(realpath main.a.bc)")
     popd
 done
 

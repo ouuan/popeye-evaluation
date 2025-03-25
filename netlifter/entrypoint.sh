@@ -14,10 +14,10 @@ export PATH="/usr/lib/llvm-12/bin:$PATH"
 
 cd "/$1"
 echo "Building $1"
-if ! make main.o.bc; then
-    make main.o
-    extract-bc main.o
+if ! make main.a.bc; then
+    make main.a
+    extract-bc -b main.a
 fi
 
 echo "Running popeye"
-popeye main.o.bc -popeye-entry=popeye_main -popeye-output=bnf >/output/stdout.txt 2>/output/stderr.txt
+popeye main.a.bc -popeye-entry=popeye_main -popeye-output=bnf >/output/stdout.txt 2>/output/stderr.txt
