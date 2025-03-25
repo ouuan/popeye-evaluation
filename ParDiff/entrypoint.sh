@@ -7,6 +7,8 @@ if [[ $# != 2 ]]; then
     exit 1
 fi
 
+. "$HOME/.cargo/env"
+
 export CC=wllvm
 export CXX=wllvm++
 export LLVM_COMPILER=clang
