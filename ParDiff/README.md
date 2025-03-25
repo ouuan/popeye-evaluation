@@ -17,11 +17,11 @@ To create your own test cases, please follow the steps below to get bitcode as i
 * The source code must be implemented in C and can be compiled using clang-12 and wllvm.
 * Annotate the entry parsing function in the source code using the interfaces we provide below:
 ```
-  void * pardiff_make_object(unsigned size);
+  void * popeye_make_object(unsigned size);
   // This interface works as the C lib interface, malloc(), which allocates space in memory with a given size. 
-  void * pardiff_make_message();
+  void * popeye_make_message();
   // This interface creates a buffer of the networking data.
-  unsigned pardiff_make_message_length();
+  unsigned popeye_make_message_length();
   // This interface indicates the length of the input networking data
 ```
 Here is an example how we do annotations on the [FRR/babeld parser](https://github.com/FRRouting/frr/blob/master/babeld/message.c#L402):
@@ -32,17 +32,17 @@ Here is an example how we do annotations on the [FRR/babeld parser](https://gith
 #include <stdlib.h>
 #include "message.h"
 
-void *pardiff_make_object(uint64_t size);
+void *popeye_make_object(uint64_t size);
 
-void *pardiff_make_message(void);
+void *popeye_make_message(void);
 
-int pardiff_make_message_length(void);
+int popeye_make_message_length(void);
 
 int pardiff_main_message(){
-    unsigned char *from = pardiff_make_object(sizeof(char));
-    struct interface *ifp = pardiff_make_object(sizeof(struct interface));
-    unsigned char *packet = pardiff_make_message();
-    int len = pardiff_make_message_length();
+    unsigned char *from = popeye_make_object(sizeof(char));
+    struct interface *ifp = popeye_make_object(sizeof(struct interface));
+    unsigned char *packet = popeye_make_message();
+    int len = popeye_make_message_length();
     parse_packet(from, ifp,packet, len); 
     return 0; 
 }

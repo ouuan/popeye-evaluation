@@ -308,15 +308,15 @@ void Executor::visitCall(CallInst &I) {
                     visitMemCpy(I);
                 } else if (CalleeName == "__memset_chk") {
                     visitMemSet(I);
-                } else if (CalleeName == "pardiff_make_message") {
+                } else if (CalleeName == "popeye_make_message") {
                     visitpardiffMakeMessage(I);
-                } else if (CalleeName == "pardiff_make_message_length") {
+                } else if (CalleeName == "popeye_make_message_length") {
                     visitpardiffMakeMessageLen(I);
                 } else if (CalleeName == "calloc") {
                     visitCalloc(I);
-                } else if (CalleeName == "malloc" || CalleeName == "pardiff_make_object") {
+                } else if (CalleeName == "malloc" || CalleeName == "popeye_make_object") {
                     visitMalloc(I);
-                } else if (CalleeName == "pardiff_make_named_object") {
+                } else if (CalleeName == "popeye_make_named_object") {
                     visitpardiffMakeNamedObject(I);
                 } else if (ByteSwapFunctions.count(CalleeName.str())) {
                     visitByteSwap(I);

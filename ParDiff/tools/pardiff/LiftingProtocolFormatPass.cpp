@@ -147,21 +147,21 @@ bool LiftingProtocolFormatPass::runOnModule(Module &M) {
 
 void LiftingProtocolFormatPass::checkBuiltInFunctions(Module &M) {
     /*
-     * void *pardiff_make_object(uint64_t size);
-     * void *pardiff_make_named_object(uint64_t size, const char *);
-     * void pardiff_make_global(void *);
-     * void *pardiff_make_message(void);
-     * uint16_t pardiff_make_message_length(void);
+     * void *popeye_make_object(uint64_t size);
+     * void *popeye_make_named_object(uint64_t size, const char *);
+     * void popeye_make_global(void *);
+     * void *popeye_make_message(void);
+     * uint16_t popeye_make_message_length(void);
      */
 
-    auto *pardiffMakeObject = M.getFunction("pardiff_make_object");
+    auto *pardiffMakeObject = M.getFunction("popeye_make_object");
     if (pardiffMakeObject) {
         assert(pardiffMakeObject->getReturnType()->isPointerTy());
         assert(pardiffMakeObject->arg_size() == 1);
         assert(pardiffMakeObject->getArg(0)->getType()->isIntegerTy());
     }
 
-    auto *pardiffMakeNamedObject = M.getFunction("pardiff_make_named_object");
+    auto *pardiffMakeNamedObject = M.getFunction("popeye_make_named_object");
     if (pardiffMakeNamedObject) {
         assert(pardiffMakeNamedObject->getReturnType()->isPointerTy());
         assert(pardiffMakeNamedObject->arg_size() == 2);
@@ -169,13 +169,13 @@ void LiftingProtocolFormatPass::checkBuiltInFunctions(Module &M) {
         assert(pardiffMakeNamedObject->getArg(1)->getType()->isPointerTy());
     }
 
-    auto *pardiffMakeMessage = M.getFunction("pardiff_make_message");
+    auto *pardiffMakeMessage = M.getFunction("popeye_make_message");
     if (pardiffMakeMessage) {
         assert(pardiffMakeMessage->getReturnType()->isPointerTy());
         assert(pardiffMakeMessage->arg_size() == 0);
     }
 
-    auto *pardiffMakeMessageLength = M.getFunction("pardiff_make_message_length");
+    auto *pardiffMakeMessageLength = M.getFunction("popeye_make_message_length");
     if (pardiffMakeMessageLength) {
         assert(pardiffMakeMessageLength->getReturnType()->isIntegerTy());
         assert(pardiffMakeMessageLength->arg_size() == 0);
