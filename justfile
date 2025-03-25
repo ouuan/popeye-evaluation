@@ -5,9 +5,15 @@ _list:
 pardiff test1 test2:
     docker compose run --rm pardiff "{{test1}}" "{{test2}}"
 
+pardiff-interactive:
+    docker compose run --rm --entrypoint /bin/bash pardiff
+
 # Run popeye on a test at path <test>. Example: just popeye tests/foo
 popeye test:
     docker compose run --rm popeye "{{test}}"
+
+popeye-interactive:
+    docker compose run --rm --entrypoint /bin/bash popeye
 
 # Clean up bitcodes and object files in tests.
 clean:
