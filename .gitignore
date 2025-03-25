@@ -1,4 +1,5 @@
 output/
+target/
 *.o
 *.a
 *.bc

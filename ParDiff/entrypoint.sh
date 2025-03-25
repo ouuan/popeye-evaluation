@@ -18,8 +18,13 @@ for t in "/$1" "/$2"; do
     pushd "$t"
     echo "Building $t"
     if ! make main.a.bc; then
-        make main.a
-        extract-bc -b main.a
+        if [[ -f Cargo.toml ]]; then
+            RUSTFLAGS="--emit=llvm-bc" cargo build --release
+            llvm-link target/release/deps/*.bc > main.a.bc
+        else
+            make main.a
+            extract-bc -b main.a
+        fi
     fi
     bitcodes+=("$(realpath main.a.bc)")
     popd

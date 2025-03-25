@@ -32,6 +32,9 @@ FROM llvm
 RUN apt-get install -y python3 python3-pip clang-12 file
 RUN pip install wllvm
 
+# 1.55.0 is the last version with LLVM 12
+RUN wget -qO- https://sh.rustup.rs | sh -s -- -y --default-toolchain 1.55.0 --profile minimal
+
 COPY --from=build /usr/local/lib/libz3.so.4.8 /usr/local/lib
 COPY --from=build /src/build/bin/* /usr/local/bin/
 
