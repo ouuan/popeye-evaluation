@@ -17,8 +17,10 @@ bitcodes=()
 for t in "/$1" "/$2"; do
     pushd "$t"
     echo "Building $t"
-    make main.o
-    extract-bc main.o
+    if ! make main.o.bc; then
+        make main.o
+        extract-bc main.o
+    fi
     bitcodes+=("$(realpath main.o.bc)")
     popd
 done
