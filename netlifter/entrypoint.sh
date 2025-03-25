@@ -14,14 +14,12 @@ export PATH="/usr/lib/llvm-12/bin:$PATH"
 
 cd "/$1"
 echo "Building $1"
-if ! make main.a.bc; then
-    if [[ -f Cargo.toml ]]; then
-        RUSTFLAGS="--emit=llvm-bc" cargo build --release
-        llvm-link target/release/deps/*.bc > main.a.bc
-    else
-        make main.a
-        extract-bc -b main.a
-    fi
+if [[ -f Cargo.toml ]]; then
+    RUSTFLAGS="--emit=llvm-bc" cargo build --release
+    llvm-link target/release/deps/*.bc > main.a.bc
+else
+    make main.a
+    extract-bc -b main.a
 fi
 
 echo "Running popeye"

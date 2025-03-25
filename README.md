@@ -17,7 +17,7 @@ See results in the `output` directory.
 
 ## Test Case Organization
 
--   Each test case should be organized in a directory in `tests` that can be built with `make main.a`. Alternatively, the Makefile may provide rule to make target `main.a.bc` directly.
+-   Each test case should be organized in a directory in `tests` that can be built with `make main.a`.
 
 -   Use `$(CC)` and `$(CXX)` instead of `gcc` and `g++` in the Makefile.
 
