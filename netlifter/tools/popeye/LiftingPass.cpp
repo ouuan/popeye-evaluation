@@ -166,7 +166,7 @@ void LiftingPass::checkBuiltInFunctions(Module &M) {
      * void *popeye_make_named_object(uint64_t size, const char *);
      * void popeye_make_global(void *);
      * void *popeye_make_message(void);
-     * uint16_t popeye_make_message_length(void);
+     * uint32_t popeye_make_message_length(void);
      */
 
     auto DeleteBody = [](Function *F) {

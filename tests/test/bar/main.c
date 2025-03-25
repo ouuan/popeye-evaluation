@@ -5,7 +5,7 @@ void *popeye_make_object(uint64_t size);
 
 void *popeye_make_message();
 
-uint16_t popeye_make_message_length();
+uint32_t popeye_make_message_length();
 
 void parse(uint8_t *message, uint64_t size)
 {
