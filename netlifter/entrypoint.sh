@@ -18,4 +18,4 @@ make main.o
 extract-bc main.o
 
 echo "Running popeye"
-popeye main.o.bc -popeye-entry=popeye_main -popeye-output:bnf >/output/stdout.txt 2>/output/stderr.txt
+popeye main.o.bc -popeye-entry=popeye_main -popeye-output=bnf >/output/stdout.txt 2>/output/stderr.txt
