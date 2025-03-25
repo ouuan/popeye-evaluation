@@ -24,4 +24,4 @@ for t in "/$1" "/$2"; do
 done
 
 echo "Running ParDiff"
-pardiff "${bitcodes[@]}" -pardiff-entry=pardiff_main_message >/output/stdout.txt 2>/output/stderr.txt
+pardiff "${bitcodes[@]}" -pardiff-entry=popeye_main >/output/stdout.txt 2>/output/stderr.txt
