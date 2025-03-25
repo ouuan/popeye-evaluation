@@ -20,7 +20,8 @@ clean:
     find tests -type f -regex '.*\.\(bc\|o\)' -delete
 
 # Build all Docker images.
-build: build-pardiff build-popeye
+build:
+    sudo docker compose build
 
 # Build ParDiff Docker image.
 build-pardiff:
