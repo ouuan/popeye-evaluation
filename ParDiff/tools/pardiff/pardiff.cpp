@@ -219,10 +219,10 @@ int main(int argc, char **argv) {
     errs()<<"\nInst num before slicing: "<<Inst.size()<<"\n";
     errs()<<"\nInst num after slicing: "<<slice_Inst.size()<<"\n";
     Passes.add(new NotificationPass("Start to get BNF for the second implementation ... ""Done!"));
-    //errs()<<"***first:";
-    //errs()<<graphsForDiff[0]<<"\n";
-    //errs()<<"***second:";
-    //errs()<<graphsForDiff[1]<<"\n";
+    errs()<<"***first:";
+    errs()<<graphsForDiff[0]<<"\n";
+    errs()<<"***second:";
+    errs()<<graphsForDiff[1]<<"\n";
     //errs()<<"save success in graphfordiff\n";
     Passes.add(new NotificationPass("Start to get-diff "));
     
@@ -238,6 +238,7 @@ int main(int argc, char **argv) {
         TimeRecorder FSM1Timer("Generate FSM1");
         errs()<<"start to construct the first FSM\n";
         f1 = FSM::getFSM(BNF1);
+        errs()<<"\nFSM for the first version before simplify:\n"<<f1;
         errs()<<"Node num before simplify: "<<f1->allNodes.size()<<"\n";
         int edgenum =0;
         for(auto n: f1->allNodes){
@@ -257,6 +258,7 @@ int main(int argc, char **argv) {
         TimeRecorder FSM2Timer("Generate FSM2");
         errs()<<"start to construct the second FSM\n";
         f2 = FSM::getFSM(BNF2);
+        errs()<<"\nFSM for the second version before simplify:\n"<<f2;
         errs()<<"Node num before simplify: "<<f2->allNodes.size()<<"\n";
         int edgenum2 =0;
         for(auto n: f2->allNodes){
