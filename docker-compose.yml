@@ -4,8 +4,10 @@ services:
     volumes:
       - ./output/pardiff:/output
       - ./tests:/tests
+      - ./third_party:/third_party
   popeye:
     build: netlifter
     volumes:
       - ./output/popeye:/output
       - ./tests:/tests
+      - ./third_party:/third_party
