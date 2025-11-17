@@ -13,6 +13,8 @@ export CC=wllvm
 export CXX=wllvm++
 export LLVM_COMPILER=clang
 export PATH="/usr/lib/llvm-12/bin:$PATH"
+export CFLAGS='-g -O0 -fno-vectorize -fno-slp-vectorize'
+export CXXFLAGS="$CFLAGS"
 
 cd "/$1"
 echo "Building $1"

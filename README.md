@@ -17,13 +17,13 @@ See results in the `output` directory.
 
 ## Test Case Organization
 
--   Each test case should be organized in a directory in `tests` that can be built with `make main.a`.
+-   Each test case should be organized in a directory under `tests` that can be built with `make main.a`.
 
--   Use `$(CC)` and `$(CXX)` instead of `gcc` and `g++` in the Makefile.
+-   In the `Makefile` of each test case, use `$(CC)` and `$(CXX)` instead of `gcc` and `g++`, add `$(CFLAGS)` and `$(CXXFLAGS)`.
 
 -   ParDiff and popeye interfaces are unified so that the same test case code can be used in both tools. Use `popeye_make_*` instead of `pardiff_make_*`. Use `popeye_main` instead of `pardiff_main_message` as entry point.
 
--   Rust tests are also supported. Use Rust 1.55.0 (edition 2018 and lockfile v3):
+-   Rust tests are also supported (use `cargo` instead of `make`). Use Rust 1.55.0 (edition 2018 and lockfile v3):
 
     ```rust
     use std::ffi::c_void;
