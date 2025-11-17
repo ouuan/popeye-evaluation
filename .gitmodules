@@ -1,3 +1,6 @@
 [submodule "tests/paper/libssq"]
 	path = third_party/libssq
 	url = https://github.com/BinaryAlien/libssq
+[submodule "third_party/OpenSC"]
+	path = third_party/OpenSC
+	url = https://github.com/OpenSC/OpenSC

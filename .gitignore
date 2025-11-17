@@ -3,3 +3,4 @@ target/
 *.o
 *.a
 *.bc
+compile_commands.json
