@@ -26,5 +26,11 @@ else
     extract-bc -b main.a
 fi
 
+output="/output/${1#tests/}"
+name=$(basename "$1")
+rm -rf "$output"
+mkdir -p "$output"
+cp main.a.bc "$output"
+cd "$output"
 echo "Running popeye"
-popeye main.a.bc -popeye-entry=popeye_main -popeye-output=bnf >/output/stdout.txt 2>/output/stderr.txt
+popeye main.a.bc -popeye-entry=popeye_main -popeye-output=dot:"$name".dot -popeye-output=bnf >"$name-stdout.txt" 2>"$name-stderr.txt"

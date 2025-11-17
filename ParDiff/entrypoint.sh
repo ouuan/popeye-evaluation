@@ -30,5 +30,11 @@ for t in "/$1" "/$2"; do
     popd
 done
 
+output="/output/${1#tests/}"
+name=$(basename "$1")
+rm -rf "$output"
+mkdir -p "$output"
+cp "${bitcodes[@]}" "$output"
+cd "$output"
 echo "Running ParDiff"
-pardiff "${bitcodes[@]}" -pardiff-entry=popeye_main >/output/stdout.txt 2>/output/stderr.txt
+pardiff "${bitcodes[@]}" -pardiff-entry=popeye_main >"$name-stdout.txt" 2>"$name-stderr.txt" 
