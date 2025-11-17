@@ -19,8 +19,8 @@ popeye-interactive:
 
 # Clean up bitcodes and object files in tests.
 clean:
-    find -L tests -maxdepth 20 -type f -regex '.*\.\(bc\|o\|a\)' -delete
     find tests -type d -name target -exec sudo rm -rf {} +
+    find -L tests -maxdepth 20 -type f -regex '.*\.\(bc\|o\|a\)' -delete
 
 # Build all Docker images.
 build:
