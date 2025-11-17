@@ -24,15 +24,15 @@ clean:
 
 # Build all Docker images.
 build:
-    sudo docker compose build
+    docker compose build
 
 # Build ParDiff Docker image.
 build-pardiff:
-    sudo docker compose build pardiff
+    docker compose build pardiff
 
 # Build popeye Docker image.
 build-popeye:
-    sudo docker compose build popeye
+    docker compose build popeye
 
 _base := shell('basename "$1"', justfile_directory())
 registry := "docker.ouuan.moe"
