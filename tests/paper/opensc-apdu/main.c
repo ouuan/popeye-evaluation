@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <assert.h>
 
 #include "libopensc/opensc.h"
 
@@ -14,6 +15,7 @@ int popeye_main()
     uint64_t size = popeye_make_message_length();
     sc_context_t *ctx = popeye_make_object(sizeof(sc_context_t));
     sc_apdu_t *apdu = popeye_make_object(sizeof(sc_apdu_t));
-    sc_bytes2apdu(ctx, message, size, apdu);
+    const int result = sc_bytes2apdu(ctx, message, size, apdu);
+    assert(result == SC_SUCCESS);
     return 0;
 }

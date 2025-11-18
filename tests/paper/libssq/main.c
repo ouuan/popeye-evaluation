@@ -1,4 +1,6 @@
 #include <stdint.h>
+#include <assert.h>
+#include <string.h>
 
 #include "error.h"
 #include "ssq/a2s/info.h"
@@ -16,6 +18,7 @@ int popeye_main()
     uint8_t *message = popeye_make_message();
     uint64_t size = popeye_make_message_length();
     SSQ_ERROR *error = popeye_make_object(sizeof(SSQ_ERROR));
-    ssq_info_deserialize(message, size, error);
+    const A2S_INFO *result = ssq_info_deserialize(message, size, error);
+    assert(result != NULL);
     return 0;
 }
