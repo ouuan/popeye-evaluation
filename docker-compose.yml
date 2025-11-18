@@ -5,9 +5,11 @@ services:
       - ./output/pardiff:/output
       - ./tests:/tests
       - ./third_party:/third_party
+      - ./cargo-registry:/root/.cargo/registry
   popeye:
     build: netlifter
     volumes:
       - ./output/popeye:/output
       - ./tests:/tests
       - ./third_party:/third_party
+      - ./cargo-registry:/root/.cargo/registry

@@ -1,6 +1,7 @@
+cargo-registry/
 output/
 target/
-*.o
 *.a
 *.bc
+*.o
 compile_commands.json

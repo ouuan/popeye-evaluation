@@ -13,6 +13,9 @@ export CC=wllvm
 export CXX=wllvm++
 export LLVM_COMPILER=clang
 export PATH="/usr/lib/llvm-12/bin:$PATH"
+export CFLAGS='-g -O0 -fno-vectorize -fno-slp-vectorize'
+export CXXFLAGS="$CFLAGS"
+export RUSTFLAGS="-g -C llvm-args=-vectorize-slp=false -C llvm-args=-vectorize-loops=false --emit=llvm-bc"
 
 bitcodes=()
 
@@ -20,7 +23,7 @@ for t in "/$1" "/$2"; do
     pushd "$t"
     echo "Building $t"
     if [[ -f Cargo.toml ]]; then
-        RUSTFLAGS="--emit=llvm-bc" cargo build --release
+        cargo build --release
         llvm-link target/release/deps/*.bc > main.a.bc
     else
         make main.a
