@@ -26,7 +26,7 @@ for t in "/$1" "/$2"; do
         cargo build --release
         llvm-link target/release/deps/*.bc > main.a.bc
     else
-        make main.a
+        make -j"$(nproc)" main.a
         extract-bc -b main.a
     fi
     bitcodes+=("$(realpath main.a.bc)")

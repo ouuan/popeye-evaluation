@@ -23,7 +23,7 @@ if [[ -f Cargo.toml ]]; then
     cargo build --release
     llvm-link target/release/deps/*.bc > main.a.bc
 else
-    make main.a
+    make -j"$(nproc)" main.a
     extract-bc -b main.a
 fi
 
