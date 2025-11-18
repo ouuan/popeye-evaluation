@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-if [[ $# != 2 ]]; then
-    echo "Usage: $0 <path-to-test1> <path-to-test2>"
+if [[ $# -lt 2 ]]; then
+    echo "Usage: $0 <path-to-test1> <path-to-test2> [other pardiff options ...]"
     exit 1
 fi
 
@@ -37,4 +37,4 @@ mkdir -p "$output"
 cp "${bitcodes[@]}" "$output"
 cd "$output"
 echo "Running ParDiff"
-pardiff "${bitcodes[@]}" -pardiff-entry=popeye_main 2>"$name.err" | tee "$name.log"
+pardiff "${bitcodes[@]}" -pardiff-entry=popeye_main "${@:2}" 2>"$name.err" | tee "$name.log"

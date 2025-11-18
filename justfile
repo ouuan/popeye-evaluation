@@ -1,17 +1,19 @@
+set positional-arguments
+
 _list:
     just --list
 
 # Run ParDiff on two tests at paths <test1> and <test2>. Example: just pardiff tests/foo tests/bar
-pardiff test1 test2:
-    docker compose run --rm pardiff "{{test1}}" "{{test2}}"
+pardiff test1 test2 *opts:
+    docker compose run --rm pardiff "$@"
 
 # Run ParDiff container with interactive shell.
 pardiff-interactive:
     docker compose run --rm --entrypoint /bin/bash pardiff
 
 # Run popeye on a test at path <test>. Example: just popeye tests/foo
-popeye test:
-    docker compose run --rm popeye "{{test}}"
+popeye test *opts:
+    docker compose run --rm popeye "$@"
 
 # Run popeye container with interactive shell.
 popeye-interactive:

@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-if [[ $# != 1 ]]; then
-    echo "Usage: $0 <path-to-test>"
+if [[ $# == 0 ]]; then
+    echo "Usage: $0 <path-to-test> [other popeye options ...]"
     exit 1
 fi
 
@@ -33,4 +33,9 @@ mkdir -p "$output"
 cp main.a.bc "$output"
 cd "$output"
 echo "Running popeye"
-popeye main.a.bc -popeye-entry=popeye_main -popeye-output=dot:"$name".dot -popeye-output=bnf 2>"$name.err" | tee "$name.log"
+popeye main.a.bc \
+    -popeye-entry=popeye_main \
+    -popeye-output=dot:"$name".dot \
+    -popeye-output=bnf \
+    "${@:2}" \
+    2>"$name.err" | tee "$name.log"
