@@ -4,3 +4,6 @@
 [submodule "third_party/OpenSC"]
 	path = third_party/OpenSC
 	url = https://github.com/OpenSC/OpenSC
+[submodule "third_party/lwip"]
+	path = third_party/lwip
+	url = https://github.com/lwip-tcpip/lwip

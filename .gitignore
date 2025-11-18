@@ -1,6 +1,7 @@
 cargo-registry/
 output/
 target/
+.cache/
 *.a
 *.bc
 *.o
