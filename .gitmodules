@@ -7,3 +7,6 @@
 [submodule "third_party/lwip"]
 	path = third_party/lwip
 	url = https://github.com/lwip-tcpip/lwip
+[submodule "third_party/libosdp"]
+	path = third_party/libosdp
+	url = https://github.com/goToMain/libosdp
