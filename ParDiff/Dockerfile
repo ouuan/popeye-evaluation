@@ -5,11 +5,11 @@ RUN apt-get install -y wget gnupg
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
 RUN echo 'deb https://apt.llvm.org/bullseye llvm-toolchain-bullseye-12 main' >> /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install -y llvm-12
+RUN apt-get install -y llvm-12 cmake make
 
 FROM llvm AS build-z3
 
-RUN apt-get install -y g++ make cmake git zlib1g-dev
+RUN apt-get install -y g++ git zlib1g-dev
 
 ENV CC=/usr/bin/gcc
 ENV CXX=/usr/bin/g++
@@ -31,7 +31,7 @@ RUN cmake --build build -j$(nproc)
 
 FROM llvm
 
-RUN apt-get install -y python3 python3-pip clang-12 file
+RUN apt-get install -y python3 python3-pip clang-12 file autoconf
 RUN pip install wllvm
 
 # 1.55.0 is the last version with LLVM 12
