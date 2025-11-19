@@ -22,7 +22,7 @@ popeye-interactive:
 # Clean up bitcodes and object files in tests.
 clean:
     find tests -type d -name target -exec sudo rm -rf {} +
-    find -L tests -maxdepth 20 -type f -regex '.*\.\(bc\|o\|a\)' -delete
+    find -L tests -maxdepth 20 -type f -regex '.*\.\(bc\|o\|a\)' -exec sudo rm -f {} +
 
 # Build all Docker images.
 build:
