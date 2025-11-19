@@ -21,8 +21,10 @@ popeye-interactive:
 
 # Clean up bitcodes and object files in tests.
 clean:
+    git submodule foreach --recursive sudo git clean -dxf
+    git submodule foreach --recursive git reset --hard
     find tests -type d -name target -exec sudo rm -rf {} +
-    find -L tests -maxdepth 20 -type f -regex '.*\.\(bc\|o\|a\)' -exec sudo rm -f {} +
+    find tests -maxdepth 20 -type f -regex '.*\.\(bc\|o\|a\)' -delete
 
 # Build all Docker images.
 build:
