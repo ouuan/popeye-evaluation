@@ -10,3 +10,9 @@
 [submodule "third_party/libosdp"]
 	path = third_party/libosdp
 	url = https://github.com/goToMain/libosdp
+[submodule "third_party/frr"]
+	path = third_party/frr
+	url = https://github.com/FRRouting/frr
+[submodule "third_party/libyang"]
+	path = third_party/libyang
+	url = https://github.com/CESNET/libyang
