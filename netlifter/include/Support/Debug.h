@@ -25,10 +25,10 @@
 #ifdef NDEBUG
 #define POPEYE_WARN(X)
 #else
-#define POPEYE_WARN(X) llvm::outs() << "[WARN] " << X << "\n"
+#define POPEYE_WARN(X) (llvm::outs() << "[WARN] " << X << "\n").flush()
 #endif
 
-#define POPEYE_INFO(X) llvm::outs() << "[INFO] " << X << "\n"
+#define POPEYE_INFO(X) (llvm::outs() << "[INFO] " << X << "\n").flush()
 
 /// @{
 bool isPopeyeCurrentDebugType(const char *Type);

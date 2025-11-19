@@ -25,9 +25,9 @@
 #ifdef NDEBUG
 #define pardiff_WARN(X)
 #else
-#define pardiff_WARN(X) llvm::outs() << "[WARN] " << X << "\n"
+#define pardiff_WARN(X) (llvm::outs() << "[WARN] " << X << "\n").flush()
 #endif
 
-#define pardiff_INFO(X) llvm::outs() << "[INFO] " << X << "\n"
+#define pardiff_INFO(X) (llvm::outs() << "[INFO] " << X << "\n").flush()
 
 #endif //SUPPORT_DEBUG_H

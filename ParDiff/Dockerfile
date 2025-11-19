@@ -14,7 +14,7 @@ RUN apt-get install -y g++ git zlib1g-dev
 ENV CC=/usr/bin/gcc
 ENV CXX=/usr/bin/g++
 
-RUN git clone https://github.com/zmw12306/z3 /z3
+RUN git clone https://github.com/zmw12306/z3 /z3 --depth 1
 RUN cmake -S /z3 -B /z3/build
 RUN cmake --build /z3/build -j$(nproc)
 RUN cmake --install /z3/build --prefix /usr/local
