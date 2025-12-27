@@ -36,7 +36,10 @@ cd "$output"
 echo "Running popeye"
 popeye main.a.bc \
     -popeye-entry=popeye_main \
+    -popeye-output=bnf:"$name".bnf \
+    -popeye-output=fsm:"$name".fsm \
+    -popeye-output=p:"$name".p \
     -popeye-output=dot:"$name".dot \
-    -popeye-output=bnf \
+    -popeye-output=ddl:"$name".ddl \
     "${@:2}" \
     2>"$name.err" | tee "$name.log"
